@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>URBAN STRIKE V2</title>
+<title>URBAN STRIKE V2</title><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#14181c"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{--ac:#ff8a1f;--bg:#14181c}
 html,body{margin:0;height:100%;background:var(--bg);overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;color:#fff}
@@ -1677,4 +1677,4 @@ function loop(t){requestAnimationFrame(loop);if(t-last<FT*1000-1.5)return;const 
  sun.position.set(P.x+34,60,P.z+22);sun.target.position.set(P.x,0,P.z);rd.shadowMap.needsUpdate=HQ||!(qf&1);qa+=dt;if(++qf%45==0){const a=qa/45;qa=0;let n=pr;if(a>FT*1.11&&pr>.7){n=pr-.15;qLock=now+12}else if(a<FT*1.025&&pr<qMax&&now>qLock)n=Math.min(qMax,pr+.1);if(n!=pr){pr=n;rd.setPixelRatio(pr);rs()}if(HQ&&pr<=.8&&a>FT*1.11&&sun.shadow.mapSize.x>2048){sun.shadow.mapSize.set(2048,2048);if(sun.shadow.map){sun.shadow.map.dispose();sun.shadow.map=null}}}
  if(state!=='intro'){landVel+=(-160*landOff-12*landVel)*dt;landOff+=landVel*dt;cam.position.set(P.x,P.y+P.eh+landOff,P.z);cam.rotation.set(P.pitch,P.yaw,0);sky.position.copy(cam.position)}if(heavyMode===2&&heavyWorld)heavyWorld.rotation.y=P.yaw;renderHDR()}
 sw(0);en.forEach(spawn);renderCollection();requestAnimationFrame(loop);
-</script></body></html>
+</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}</script></body></html>
